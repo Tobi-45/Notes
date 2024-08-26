@@ -60,3 +60,10 @@ This can be used to list all available payloads, which can then be piped into gr
   - Downside to meterpreter shells is that they must be caught in Metasploit.
 
 
+# msf multi/handler
+
+Multi/Handler is a superb tool for catching reverse shells, easy to use for a staged payload
+
+Use : Type `use multi/handler`, and press **enter**
+
+
