@@ -20,4 +20,17 @@ Replace the "IP" & "Port"
 
 # Msfvenom
 
-1. **Staged** payloads are sent in two parts. The first part is called the stager
+1. **Staged** payloads are sent in two parts. The first part is called the stager, It does not contain the payload but rather run's and downloads the payload.
+Modern day antivirus solutions will also make use of the Anti-Malware Scan Interface (AMSI) to detect the payload as it is loaded into memory by the stager, making staged payloads less effective
+
+
+2. **Stageless** payloads are more common, They are entirely self-contained in that there is one piece of code which sends a shell back immediately to the waiting listener.
+
+
+# Meterpreter 
+
+Meterpreter shells are Metasploit's own brand of fully-featured shell. They are completely stable, making them a very good thing when working with **Windows targets**
+  If we want to use any of Metasploit's post-exploitation tools then we need to use a meterpreter shell.
+     Downside to meterpreter shells is that they must be caught in Metasploit.
+
+
