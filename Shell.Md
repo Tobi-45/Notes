@@ -20,4 +20,4 @@ Replace the "IP" & "Port"
 
 # Msfvenom
 
-1. *Staged* payloads are sent in two parts. The first part is called the stager
+1. **Staged** payloads are sent in two parts. The first part is called the stager
