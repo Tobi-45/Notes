@@ -28,7 +28,8 @@ Modern day antivirus solutions will also make use of the Anti-Malware Scan Inter
 
 
 ## Msfvenom payload naming
- *<OS>/<arch>/<payload>*
+
+ `<OS>/<arch>/<payload>`
 
 **stageless payload** = `shell_reverse_tcp` *Stageless payloads are denoted with underscores (_)*
 
