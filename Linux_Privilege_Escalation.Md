@@ -17,9 +17,9 @@ Output :
     *Time*: Amount of CPU time used by the process (this is NOT the time this process has been running for)
     *CMD*: The command or executable running (will NOT display any command line parameter)
 
-    `ps -A`: View all running processes
-    `ps axjf`: View process tree (see the tree formation until ps axjf is run below)
-    `ps aux`: view processes for all users (a), display the user that launched the process (u), and show processes that are not attached to a terminal (x)
+`ps -A`: View all running processes
+`ps axjf`: View process tree (see the tree formation until ps axjf is run below)
+`ps aux`: view processes for all users (a), display the user that launched the process (u), and show processes that are not attached to a terminal (x)
 
 6. `env` command will show environmental variables.
        The PATH variable may have a compiler or a scripting language (e.g. Python) that could be used to run code on the target system or leveraged for privilege escalation.
