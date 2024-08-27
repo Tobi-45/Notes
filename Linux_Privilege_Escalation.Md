@@ -62,7 +62,7 @@ with several different options to gather information on existing connections.
 
 13. `find` a build-in tool
 
-  Find files:
+Find files 
 
     `find . -name flag1.txt`: find the file named “flag1.txt” in the current directory
 
@@ -92,7 +92,7 @@ the `find` command tends to generate errors which sometimes makes the output har
 to use the “find” command with `-type f 2>/dev/null` to redirect errors to `/dev/null` and have a cleaner output
 
 
-Folders and files that can be written to or executed from:
+Folders and files that can be written to or executed from
 
     `find / -writable -type d 2>/dev/null`: Find world-writeable folders
 
