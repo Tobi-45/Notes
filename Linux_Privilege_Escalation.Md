@@ -132,6 +132,8 @@ The Kernel exploit methodology is simple;
 
 3. Run the exploit
 
+**Note** that a failed kernel exploit can lead to a system crash
+
 
 
 
