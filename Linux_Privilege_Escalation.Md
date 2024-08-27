@@ -110,6 +110,35 @@ Folders and files that can be written to or executed from
 
    `find / -perm -u=s -type f 2>/dev/null`: Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user.
 
+# Priv Esc Automation Tool
+
+1. [LinPeass](https://github.com/peass-ng/PEASS-ng/tree/master)
+
+2. [LinEnum](https://github.com/rebootuser/LinEnum)
+
+3. [Linux Exploit Suggester](https://github.com/The-Z-Labs/linux-exploit-suggester)
+
+4. [LinuxPrevChecker](https://github.com/linted/linuxprivchecker)
+
+5. [Linux Smart Enum](https://github.com/diego-treitos/linux-smart-enumeration)
+
+#  Kernel Exploits
+
+The Kernel exploit methodology is simple;
+
+1. Identify the kernel version
+
+2. Search and find an exploit code for the kernel version of the target system
+
+3. Run the exploit
+
+
+
+
+
+
+
+
 
 
 
