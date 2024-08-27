@@ -152,6 +152,8 @@ with the permission level of the file owner or the group owner, respectively.
 
 You will notice these files have an `s` bit set showing their special permission level.
 
+Eg : -rwsr-wr-rwx root bin/bash/nano
+
 `find / -type f -perm -04000 -ls 2>/dev/null` will list files that have SUID or SGID bits set.
 
 
