@@ -60,7 +60,12 @@ with several different options to gather information on existing connections.
     `-n`: Do not resolve names
     `-o`: Display timers
 
-13. `find` a build-in tool
+
+13. `/etc/shadow` is a text-based password file. The shadow file stores the hashed passphrase (or “hash”) 
+format for Linux user account with additional properties related to the user password.
+
+
+14. `find` a build-in tool
 
 Find files 
 
@@ -133,6 +138,10 @@ The Kernel exploit methodology is simple;
 3. Run the exploit
 
 **Note** that a failed kernel exploit can lead to a system crash
+
+# Sudo
+
+
 
 
 
