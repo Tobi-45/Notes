@@ -139,7 +139,9 @@ The Kernel exploit methodology is simple;
 
 **Note** that a failed kernel exploit can lead to a system crash
 
-# Sudo
+# Exploitable Functions
+
+1. `LD_PRELOAD` is a function that allows any program to use shared libraries
 
 
 
