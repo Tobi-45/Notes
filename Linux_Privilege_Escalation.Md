@@ -208,7 +208,7 @@ Any user can read the file keeping system-wide cron jobs under `/etc/crontab`
 
 If the full path of the script is not defined, cron will refer to the paths listed under the PATH variable in the `/etc/crontab` file.
 
-# Priv Esc $PATH
+# Priv Esc $PATH [artical](https://www.hackingarticles.in/linux-privilege-escalation-using-path-variable/)
 
 If a folder for which your user has write permission is located in the path, you could potentially hijack an application to run a script. PATH in Linux is an **environmental variable** that tells the operating system where to search for executables/files. For any command that is not built into the shell or that is not defined with an absolute path, Linux will start searching in folders defined under PATH.
 
@@ -223,6 +223,17 @@ Because the /usr/bin directory is included in the PATH variable, you can type th
 
 The directories are listed in priority order, so the ones that will be checked first are mentioned first.
 
+Technique to Exploit this vulniribility
+
+Example 
+
+1. Saw that a file which I had permission to execute was running a binary or some file from a diffrent location and giving the output.
+
+2. created a file with the same name as the binary/file that the main file was using lets say the dir where we created the file is `/tmp` & wrote a program to give the `/bin/bash` to me can also pass the simple command `echo "/bin/bash" > filename`
+
+3. **Using the main PrivEsc method** we will add the `/tmp` to the $PATH `export PATH=/tmp:$PATH` Give execute permission to the file created
+
+4. Go back and run the file... 
 
 
 
