@@ -181,8 +181,12 @@ supposed to used capabilities, for the python3 program that should be executed b
 This can be accomplished with following commands on the host machine.
 
    which python3
+
    cp /usr/bin/python3 /home/demo/
+
    setcap cap_setuid+ep /home/demo/python3
+
+
 
 
 
