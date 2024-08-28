@@ -166,6 +166,26 @@ Eg : -rwsr-wr-rwx root bin/bash/nano
 
 `hacker:$1$THM$WnbwlliCqxFRQepUTCkUT1:0:0root:/root:/bin/bash`
 
+3. login with user & pass
+
+`su hacker` 
+
+# Privilege Escalation: Capabilities
+
+- Capabilities are those permissions that divide the privileges of kernel user or kernel level programs
+into small pieces so that a process can be allowed sufficient power to perform specific privileged tasks.
+
+Suppose the system administrator wants to grant superuser permission for any binary program, let’s say for python3, 
+which should only be available to a specific user, and admin doesn’t want to give SUID or sudo permission. The admin
+supposed to used capabilities, for the python3 program that should be executed by specific user let’s say for user “demo”. 
+This can be accomplished with following commands on the host machine.
+
+   which python3
+   cp /usr/bin/python3 /home/demo/
+   setcap cap_setuid+ep /home/demo/python3
+
+
+
 
 
 
