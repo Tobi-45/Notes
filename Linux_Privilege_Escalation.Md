@@ -196,6 +196,18 @@ When run as an unprivileged user, `getcap -r /` will generate a huge amount of e
 
 To check if the file has root permission `ls -l filename` Eg. `ls -l /usr/bin/vim`
 
+# Corn Jobs
+
+Cron jobs are used to run scripts or binaries at specific times. By default, they run with the privilege of their owners and not the current user. While properly configured cron jobs are not inherently vulnerable, they can provide a privilege escalation vector under some conditions.
+The idea is quite simple; if there is a scheduled task that runs with root privileges and we can change the script that will be run, then our script will run with root privileges.
+
+Any user can read the file keeping system-wide cron jobs under `/etc/crontab`
+
+1. The command syntax will vary depending on the available tools. (e.g. nc will probably not support the -e option you may have seen used in other cases)
+2. We should always prefer to start reverse shells, as we not want to compromise the system integrity during a real penetration testing engagement.
+
+
+
 
 
 
