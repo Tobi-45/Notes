@@ -206,6 +206,8 @@ Any user can read the file keeping system-wide cron jobs under `/etc/crontab`
 1. The command syntax will vary depending on the available tools. (e.g. nc will probably not support the -e option you may have seen used in other cases)
 2. We should always prefer to start reverse shells, as we not want to compromise the system integrity during a real penetration testing engagement.
 
+If the full path of the script is not defined, cron will refer to the paths listed under the PATH variable in the `/etc/crontab` file.
+
 
 
 
