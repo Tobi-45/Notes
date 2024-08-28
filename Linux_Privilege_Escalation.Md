@@ -192,6 +192,8 @@ We can use the `getcap` tool to list enabled capabilities.
 
 When run as an unprivileged user, `getcap -r /` will generate a huge amount of errors, so it is good practice to redirect the error messages to `/dev/null`
 
+`getcap -r / 2>/dev/null`
+
 To check if the file has root permission `ls -l filename` Eg. `ls -l /usr/bin/vim`
 
 
