@@ -208,6 +208,26 @@ Any user can read the file keeping system-wide cron jobs under `/etc/crontab`
 
 If the full path of the script is not defined, cron will refer to the paths listed under the PATH variable in the `/etc/crontab` file.
 
+# Priv Esc $PATH
+
+If a folder for which your user has write permission is located in the path, you could potentially hijack an application to run a script. PATH in Linux is an **environmental variable** that tells the operating system where to search for executables/files. For any command that is not built into the shell or that is not defined with an absolute path, Linux will start searching in folders defined under PATH.
+
+For example, instead of typing the following to run a Python program:
+
+    `/usr/bin/python3`
+
+Because the /usr/bin directory is included in the PATH variable, you can type this instead:
+
+    `python3`
+
+
+The directories are listed in priority order, so the ones that will be checked first are mentioned first.
+
+
+
+
+
+
 
 
 
