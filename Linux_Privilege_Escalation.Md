@@ -180,11 +180,11 @@ which should only be available to a specific user, and admin doesn’t want to g
 supposed to used capabilities, for the python3 program that should be executed by specific user let’s say for user “demo”. 
 This can be accomplished with following commands on the host machine.
 
-   which python3
+   `which python3`
 
-   cp /usr/bin/python3 /home/demo/
+   `cp /usr/bin/python3 /home/demo/`
 
-   setcap cap_setuid+ep /home/demo/python3
+   `setcap cap_setuid+ep /home/demo/python3`
 
 
 
