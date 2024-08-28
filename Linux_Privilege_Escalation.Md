@@ -185,7 +185,8 @@ This can be accomplished with following commands on the host machine.
    `cp /usr/bin/python3 /home/demo/`
 
    `setcap cap_setuid+ep /home/demo/python3`
---------------------------------------------------------------------------------
+
+### Capabilities commands
 
 We can use the `getcap` tool to list enabled capabilities.
 
