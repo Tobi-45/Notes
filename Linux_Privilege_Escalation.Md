@@ -214,11 +214,11 @@ If a folder for which your user has write permission is located in the path, you
 
 For example, instead of typing the following to run a Python program:
 
-    `/usr/bin/python3`
+    /usr/bin/python3
 
 Because the /usr/bin directory is included in the PATH variable, you can type this instead:
 
-    `python3`
+    python3
 
 
 The directories are listed in priority order, so the ones that will be checked first are mentioned first.
@@ -234,6 +234,26 @@ Example
 3. **Using the main PrivEsc method** we will add the `/tmp` to the $PATH `export PATH=/tmp:$PATH` Give execute permission to the file created
 
 4. Go back and run the file... 
+
+#NFS
+
+NFS (Network File Sharing) configuration is kept in the `/etc/exports` file. This file is created during the NFS server installation and can usually be read by users.
+
+The critical element for this privilege escalation vector is the “no_root_squash” option you can see above. By default, NFS will change the root user to nfsnobody and strip any file from operating with root privileges. If the “no_root_squash” option is present on a writable share, we can create an executable with SUID bit set and run it on the target system.
+
+Soo what i understood by reading all of it is that, there are few folders that you can mount to your device with real-time syncronization and you can create a C file that will give you a shell on your target
+
+1. check for any shared directories with `cat /etc/exports`
+
+2. If any file there has Read/Write & no_root_squash set you can mount it to your device with any pass
+
+3. check the directories by `showmount -e IP`
+
+4. Mount the one with `no_root_squash` by the command `mount -o rw IP:MOUNT_DIR_NAME LOCATION_ONYOUR_MACHINE`
+
+5. create a C program to give you a shell and give it executable permission and SUID
+
+6. Run it on the target machine
 
 
 
