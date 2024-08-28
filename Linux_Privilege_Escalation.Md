@@ -170,7 +170,7 @@ Eg : -rwsr-wr-rwx root bin/bash/nano
 
 `su hacker` 
 
-# Privilege Escalation: Capabilities
+# Privilege Escalation: Capabilities [Refer](https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/)
 
 - Capabilities are those permissions that divide the privileges of kernel user or kernel level programs
 into small pieces so that a process can be allowed sufficient power to perform specific privileged tasks.
