@@ -170,7 +170,7 @@ Eg : -rwsr-wr-rwx root bin/bash/nano
 
 `su hacker` 
 
-# Privilege Escalation: Capabilities [Refer](https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/)
+# Privilege Escalation: Capabilities [Article](https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/)
 
 - Capabilities are those permissions that divide the privileges of kernel user or kernel level programs
 into small pieces so that a process can be allowed sufficient power to perform specific privileged tasks.
@@ -185,6 +185,9 @@ This can be accomplished with following commands on the host machine.
    `cp /usr/bin/python3 /home/demo/`
 
    `setcap cap_setuid+ep /home/demo/python3`
+--------------------------------------------------------------------------------
+
+We can use the `getcap` tool to list enabled capabilities.
 
 
 
