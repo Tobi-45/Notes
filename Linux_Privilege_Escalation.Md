@@ -239,13 +239,13 @@ Example
 
 NFS (Network File Sharing) configuration is kept in the `/etc/exports` file. This file is created during the NFS server installation and can usually be read by users.
 
-The critical element for this privilege escalation vector is the “no_root_squash” option you can see above. By default, NFS will change the root user to nfsnobody and strip any file from operating with root privileges. If the “no_root_squash” option is present on a writable share, we can create an executable with SUID bit set and run it on the target system.
+The critical element for this privilege escalation vector is the “no_root_squash” option. By default, NFS will change the root user to nfsnobody and strip any file from operating with root privileges. If the “no_root_squash” option is present on a writable share, we can create an executable with SUID bit set and run it on the target system.
 
 Soo what i understood by reading all of it is that, there are few folders that you can mount to your device with real-time syncronization and you can create a C file that will give you a shell on your target
 
 1. check for any shared directories with `cat /etc/exports`
 
-2. If any file there has Read/Write & no_root_squash set you can mount it to your device with any pass
+2. If any file there has Read/Write & no_root_squash set you can mount it to your device
 
 3. check the directories by `showmount -e IP`
 
