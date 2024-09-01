@@ -10,7 +10,7 @@ Brute-forcing, on the other hand, is a more targeted approach. It focuses on sys
 
 Here's an analogy to illustrate the difference: Imagine you're trying to open a locked door. Fuzzing would be like throwing everything you can find at the door - keys, screwdrivers, even a rubber duck - to see if anything unlocks it. Brute-forcing would be like trying every combination on a key ring until you find the one that opens the door.
 
-# FFUF
+## FFUF
 
 FFUF (Fuzz Faster U Fool) is a fast web fuzzer written in Go. It excels at quickly enumerating directories, files, and parameters within web
 applications. Its flexibility, speed, and ease of use make it a favorite among security professionals and enthusiasts.
@@ -19,6 +19,22 @@ applications. Its flexibility, speed, and ease of use make it a favorite among s
 
 wenum is a actively maintained fork of wfuzz, a highly versatile and powerful command-line fuzzing tool known for its flexibility and customization options. 
 It's particularly well-suited for parameter fuzzing, allowing you to test a wide range of input values against web applications and uncover potential vulnerabilities in how they process those parameters.
+
+# ffuf commands
+
+Directory Fuzzing:
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://IP:PORT/FUZZ
+
+File Fuzzing:
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/common.txt -u http://IP:PORT/w2ksvrus/FUZZ.html -e .php,.html,.txt,.bak,.js -v 
+
+
+
+
+
+
 
 
 
