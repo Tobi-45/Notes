@@ -83,6 +83,54 @@ the URL, making them the preferred method for transmitting sensitive data like l
 
 **multipart/form-data**: This format is used when submitting files along with other data. It divides the request body into multiple parts, each containing a specific piece of data or a file.
 
+# Fuzzing GET request method using WENUM 
+
+To begin, we will use `curl` to manually interact with the endpoint and gain a better understanding of its behavior
+
+luci@htb[/htb]$ `curl http://IP:PORT/get.php`
+
+Invalid parameter value
+
+x: 
+
+The response tells us that the parameter x is missing. Let's try adding a value:
+
+luci@htb[/htb]$ `curl http://IP:PORT/get.php?x=1`
+
+Invalid parameter value
+
+x: 1
+
+**wenum command** 
+
+`wenum -w /usr/share/secLists/Discovery/Web-Content/common.txt --hc 404 -u "http://IP:PORT/get.php?x=FUZZ"`
+
+
+`-w`: Path to your wordlist.
+
+`--hc 404`: Hides responses with the 404 status code (Not Found), since wenum by default will log every request it makes.
+
+`http://IP:PORT/get.php?x=FUZZ`: This is the target URL. wenum will replace the parameter value FUZZ with words from the wordlist.
+
+# Fuzzing the GET method
+
+Our target application also features a POST parameter named "y" within the post.php script. Let's probe it with curl to see its default behavior:
+
+luci@htb[/htb]$ `curl -d "" http://IP:PORT/post.php`
+
+Invalid parameter value
+
+y: 
+
+The `-d` flag instructs curl to make a POST request with an empty body.
+
+`ffuf -u http://IP:PORT/post.php -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "y=FUZZ" -w /usr/share/seclists/Discovery/Web-Content/common.txt -mc 200 -v`
+
+
+
+
+
+
 
 
 
