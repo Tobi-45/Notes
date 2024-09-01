@@ -126,6 +126,8 @@ The `-d` flag instructs curl to make a POST request with an empty body.
 
 `ffuf -u http://IP:PORT/post.php -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "y=FUZZ" -w /usr/share/seclists/Discovery/Web-Content/common.txt -mc 200 -v`
 
+`curl -d "y=ABC" http://IP:PORT/post.php`
+
 
 
 
