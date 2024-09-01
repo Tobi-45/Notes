@@ -23,11 +23,12 @@ It's particularly well-suited for parameter fuzzing, allowing you to test a wide
 # ffuf commands
 
 Directory Fuzzing:
-ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://IP:PORT/FUZZ
+
+`ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http: /IP:PORT/FUZZ`
 
 File Fuzzing:
 
-ffuf -w /usr/share/seclists/Discovery/Web-Content/common.txt -u http://IP:PORT/w2ksvrus/FUZZ.html -e .php,.html,.txt,.bak,.js -v 
+`ffuf -w /usr/share/seclists/Discovery/Web-Content/common.txt -u http: /IP:PORT/w2ksvrus/FUZZ.html -e .php,.html,.txt,.bak,.js -v`
 
 
 
