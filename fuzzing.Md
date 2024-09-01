@@ -87,7 +87,7 @@ the URL, making them the preferred method for transmitting sensitive data like l
 
 To begin, we will use `curl` to manually interact with the endpoint and gain a better understanding of its behavior
 
-luci@htb[/htb]$ `curl http://IP:PORT/get.php`
+`curl http://IP:PORT/get.php`
 
 Invalid parameter value
 
@@ -95,7 +95,7 @@ x:
 
 The response tells us that the parameter x is missing. Let's try adding a value:
 
-luci@htb[/htb]$ `curl http://IP:PORT/get.php?x=1`
+`curl http://IP:PORT/get.php?x=1`
 
 Invalid parameter value
 
@@ -116,7 +116,7 @@ x: 1
 
 Our target application also features a POST parameter named "y" within the post.php script. Let's probe it with curl to see its default behavior:
 
-luci@htb[/htb]$ `curl -d "" http://IP:PORT/post.php`
+`curl -d "" http://IP:PORT/post.php`
 
 Invalid parameter value
 
