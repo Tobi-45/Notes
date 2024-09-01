@@ -30,6 +30,31 @@ File Fuzzing:
 
 `ffuf -w /usr/share/seclists/Discovery/Web-Content/common.txt -u http: /IP:PORT/w2ksvrus/FUZZ.html -e .php,.html,.txt,.bak,.js -v`
 
+# Recursive Fuzzing
+
+It  starts as a normal fuzzing, but once it finds any directory it creates a sub task and starts fuzzing for that directory, untill a requirment is meet or till there are no further dir left.
+
+## Commands 
+
+`ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -ic -v -u http://IP:PORT/FUZZ -e .html -recursion`
+
+`-ic` option proves invaluable. By enabling this option, ffuf intelligently ignores commented lines during fuzzing, preventing them from being treated as valid inputs.
+
+While recursive fuzzing is a powerful technique, it can also be resource-intensive, especially on large web applications. 
+Excessive requests can overwhelm the target server, potentially causing performance issues or triggering security mechanisms
+
+To mitigate these risks, ffuf provides options for fine-tuning the recursive fuzzing process:
+
+`-recursion-depth`: This flag allows you to set a maximum depth for recursive exploration. For example, -recursion-depth 2 limits fuzzing to two levels deep (the starting directory and its immediate subdirectories).
+
+`-rate`: You can control the rate at which ffuf sends requests per second, preventing the server from being overloaded.
+
+`-timeout`: This option sets the timeout for individual requests, helping to prevent the fuzzer from hanging on unresponsive targets.
+
+Example `ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -ic -u http://IP:PORT/FUZZ -e .html -recursion -recursion-depth 2 -rate 500`
+
+
+
 
 
 
