@@ -53,12 +53,36 @@ To mitigate these risks, ffuf provides options for fine-tuning the recursive fuz
 
 Example `ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -ic -u http://IP:PORT/FUZZ -e .html -recursion -recursion-depth 2 -rate 500`
 
-# Parameter (get, post) and Value Fuzzing
+# Parameter (Get, Post, etc) and Value Fuzzing
 
 This technique focuses on manipulating the parameters and their values within web requests to uncover vulnerabilities in how the application processes input.
 
 Parameters are the messengers of the web, carrying vital information between your browser and the server that hosts the web application. They're like variables
 in programming, holding specific values that influence how the application behaves.
+
+## Get parameter
+You'll often spot GET parameters right in the URL, following a question mark (?). Multiple parameters are strung together using ampersands (&). For example:
+
+Code: http
+`https://example.com/search?query=fuzzing&category=security`
+
+`query` is a parameter with the value "fuzzing"
+
+`category` is another parameter with the value "security"
+
+`GET` parameters are like postcards – their information is visible to anyone who glances at the URL. They're primarily used for actions that don't change the server's state, like searching or filtering.
+
+## POST Parameters: Behind-the-Scenes Communication
+
+While GET parameters are like open postcards, POST parameters are more like sealed envelopes, carrying their information discreetly within the body of the HTTP request. They are not visible directly in 
+the URL, making them the preferred method for transmitting sensitive data like login credentials, personal information, or financial details.
+
+**Encoding**: This data is encoded into a specific format, typically application/x-www-form-urlencoded or multipart/form-data:
+
+**application/x-www-form-urlencoded**: This format encodes the data as key-value pairs separated by ampersands (&), similar to GET parameters but placed within the request body instead of the URL.
+
+**multipart/form-data**: This format is used when submitting files along with other data. It divides the request body into multiple parts, each containing a specific piece of data or a file.
+
 
 
 
