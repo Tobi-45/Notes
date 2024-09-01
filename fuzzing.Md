@@ -53,6 +53,8 @@ To mitigate these risks, ffuf provides options for fine-tuning the recursive fuz
 
 Example `ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -ic -u http://IP:PORT/FUZZ -e .html -recursion -recursion-depth 2 -rate 500`
 
+# Parameter and Value Fuzzing
+
 
 
 
