@@ -112,7 +112,7 @@ x: 1
 
 `http://IP:PORT/get.php?x=FUZZ`: This is the target URL. wenum will replace the parameter value FUZZ with words from the wordlist.
 
-# Fuzzing the GET method
+# Fuzzing the POST method
 
 Our target application also features a POST parameter named "y" within the post.php script. Let's probe it with curl to see its default behavior:
 
