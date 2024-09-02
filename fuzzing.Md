@@ -128,6 +128,63 @@ The `-d` flag instructs curl to make a POST request with an empty body.
 
 `curl -d "y=ABC" http://IP:PORT/post.php`
 
+# Virtual Host & Sub-Domain
+
+**Virtual hosting** enables multiple websites or domains to be served from a single server or IP address. Each vhost is associated with a unique domain name or hostname. When a client sends an HTTP request, the web server examines the Host header to determine which vhost's content to deliver. This facilitates efficient resource utilization and cost reduction, as multiple websites can share the same server infrastructure.
+
+**Subdomains**, on the other hand, are extensions of a primary domain name, creating a hierarchical structure within the domain. They are used to organize different sections or services within a website. For example, blog.example.com and shop.example.com are subdomains of the main domain example.com. Unlike vhosts, subdomains are resolved to specific IP addresses through DNS (Domain Name System) records.
+
+# Adding IP & Domain to /etc/hosts
+
+`echo "IP DOMAIN" | sudo tee -a /etc/hosts`
+
+`tee` tell to add stuff to a file
+
+`-a` to add the stuff at the end of a file rather than rewriting the file
+
+# Gobuster
+
+Gobuster is a versatile command-line tool renowned for its directory/file and DNS busting capabilities. It systematically probes target web servers or domains to uncover hidden directories, files, and subdomains
+
+Gobuster's flexibility extends to fuzzing for various types of content:
+
+1. Directories: Discover hidden directories on a web server.
+
+2. Files: Identify files with specific extensions (e.g., .php, .txt, .bak).
+
+3. Subdomains: Enumerate subdomains of a given domain.
+
+4. Virtual Hosts (vhosts): Uncover hidden virtual hosts by manipulating the Host header.
+
+## Gobuster VHost Fuzzing
+
+`gobuster vhost -u http://DOMAIN:81 -w /usr/share/SecLists/Discovery/Web-Content/common.txt --append-domain`
+
+
+`gobuster vhost`: This flag activates Gobuster's vhost fuzzing mode, instructing it to focus on discovering virtual hosts rather than directories or files.
+
+`-u http://DOMAIN:81`: This specifies the base URL of the target server. Gobuster will use this URL as the foundation for constructing requests with different vhost names. In this example, the target server is located at inlanefreight.htb and listens on port 81.
+
+`-w /usr/share/SecLists/Discovery/Web-Content/common.txt`: This points to the wordlist file that Gobuster will use to generate potential vhost names. The common.txt wordlist from SecLists contains a collection of commonly used vhost names and subdomains.
+
+`--append-domain`: This crucial flag instructs Gobuster to append the base domain ( DOMAIN ) to each word in the wordlist. This ensures that the Host header in each request includes a complete domain name (e.g., admin.DOMAIN), which is essential for vhost discovery.
+
+## Gobuster Subdomain Fuzzing
+
+`gobuster dns -d inlanefreight.com -w /usr/share/SecLists/Discovery/DNS/subdomains-top1million-5000.txt`
+
+
+1. `gobuster dns`: Activates Gobuster's DNS fuzzing mode, directing it to focus on discovering subdomains.
+
+2. `-d inlanefreight.com`: Specifies the target domain (e.g., inlanefreight.com) for which you want to discover subdomains.
+
+3. `-w /usr/share/SecLists/dDiscovery/DNS/subdomains-top1million-5000.txt`: This points to the wordlist file that Gobuster will use to generate potential subdomain names. In this example, we're using a wordlist containing the top 5000 most common subdomains.
+
+
+
+
+
+
 
 
 
