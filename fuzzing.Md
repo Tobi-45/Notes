@@ -227,6 +227,83 @@ Imagine a SOAP API for a library that offers a book search service. The WSDL fil
      </soapenv:Body>
     </soapenv:Envelope>
 
+### Discovering SOAP Endpoints and Parameters
+
+**WSDL Analysis**: The WSDL file is the most valuable resource for understanding a SOAP API. It describes:
+
+Available operations (endpoints)
+
+Input parameters for each operation (message types, elements, and attributes)
+
+Output parameters for each operation (response message types)
+
+Data types used for parameters (e.g., strings, integers, complex types)
+
+The location (URL) of the SOAP endpoint
+
+You can analyze the WSDL file manually or use tools designed to parse and visualize WSDL structures.
+
+**Network Traffic Analysis**: Similar to REST APIs, you can intercept and analyze SOAP traffic to observe the requests and responses between clients and the server. Tools like Wireshark or tcpdump can capture SOAP traffic, allowing you to examine the structure of SOAP messages and extract information about endpoints and parameters.
+
+**Fuzzing for Parameter Names and Values**: While SOAP APIs typically have a well-defined structure, fuzzing can still be helpful in uncovering hidden or undocumented operations or parameters. You can use fuzzing tools to send malformed or unexpected values within SOAP requests and see how the server responds.
+
+## Identifying GraphQL API Endpoints and Parameters
+
+GraphQL APIs are designed to be more flexible and efficient than REST and SOAP APIs, allowing clients to request precisely the data they need in a single request.
+
+Unlike REST or SOAP APIs, which often expose multiple endpoints for different resources, GraphQL APIs typically have a single endpoint. This endpoint is usually a URL like /graphql and serves as the entry point for all queries and mutations sent to the API.
+
+GraphQL uses a unique query language to specify the data requirements. Within this language, queries and mutations act as the vehicles for defining parameters and structuring the requested data.
+
+### GraphQL Queries
+
+Queries are designed to fetch data from the GraphQL server. They pinpoint the exact fields, relationships, and nested objects the client desires, eliminating the issue of over-fetching or under-fetching data common in REST APIs. Arguments within queries allow for further refinement, such as filtering or pagination.
+
+      Component 	|                               Description 	                                                 |        Example
+        Field 	     |       Represents a specific piece of data you want to retrieve (e.g., name, email). 	    |      name, email
+     Relationship 	|      Indicates a connection between different types of data (e.g., a user's posts). 	    |      posts
+     Nested Object 	|   A field that returns another object, allowing you to traverse deeper into the data graph. | 	  posts { title, body }
+       Argument 	|      Modifies the behavior of a query or field (e.g., filtering, sorting, pagination). 	    |posts(limit: 5) (retrieves the first 5 posts of a user)
+
+        query {
+     user(id: 123) {
+       name
+       email
+     posts(limit: 5) {
+      title
+        body
+       }
+      }
+    }
+
+### GraphQL Mutations
+
+Mutations are the counterparts to queries designed to modify data on the server. They encompass operations to create, update, or delete data. Like queries, mutations can also accept arguments to define the input values for these operations.
+
+   Component 	|                                   Description 	                              |                            Example
+   Operation 	|  The action to perform (e.g., createPost, updateUser, deleteComment). 	     |                          createPost
+   Argument 	|  Input data required for the operation (e.g., title and body for a new post). |     title: "New Post", body: "This is the content of the new post"
+   Selection 	|  Fields you want to retrieve in the response after the mutation completes     |                           id, title
+
+                      mutation {
+                   createPost(title: "New Post", body: "This is the content of the new post") {
+                      id
+                       title
+                     }
+                  }
+
+### Discovering Queries and Mutations
+
+There are a few ways to discover GraphQL Queries and Mutations:
+
+**Introspection**: GraphQL's introspection system is a powerful tool for discovery. By sending an introspection query to the GraphQL endpoint, you can retrieve a complete schema describing the API's capabilities. This includes available types, fields, queries, mutations, and arguments. Tools and IDEs can leverage this information to offer auto-completion, validation, and documentation for your GraphQL queries.
+
+**API Documentation**: Well-documented GraphQL APIs provide comprehensive guides and references alongside introspection. These typically explain the purpose and usage of different queries and mutations, offer examples of valid structures, and detail input arguments and response formats. Tools like GraphiQL or GraphQL Playground, often bundled with GraphQL servers, provide an interactive environment for exploring the schema and experimenting with queries.
+
+**Network Traffic Analysis**: Like REST and SOAP, analyzing network traffic can yield insights into GraphQL API structure and usage. By capturing and inspecting requests and responses sent to the graphql endpoint, you can observe real-world queries and mutations. This helps you understand the expected format of requests and the types of data returned, aiding in tailored fuzzing efforts.
+
+
+
 
 
 
