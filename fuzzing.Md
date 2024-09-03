@@ -225,7 +225,7 @@ Imagine a SOAP API for a library that offers a book search service. The WSDL fil
          <lib:author>Dan Kaminsky</lib:author>
       </lib:SearchBooks>
      </soapenv:Body>
-   </soapenv:Envelope>
+    </soapenv:Envelope>
 
 
 
