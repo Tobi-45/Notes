@@ -182,6 +182,18 @@ Gobuster's flexibility extends to fuzzing for various types of content:
 
 # Identifying Endpoints (API's)
 
+## REST API
+
+REST APIs are built around the concept of resources, which are identified by unique URLs called endpoints. These endpoints are the targets for client requests, and they often include parameters to provide additional context or control over the requested operation.
+
+Parameters are used to modify the behavior of API requests or provide additional information. In REST APIs, there are several types of parameters:
+
+     Parameter Type 	                                            Description 	                                                       Example
+     Query Parameters 	Appended to the endpoint URL after a question mark (?). Used for filtering, sorting, or pagination. 	  /users?limit=10&sort=name
+     Path Parameters 	  Embedded directly within the endpoint URL. Used to identify specific resources. 	                      /products/{id}pen_spark
+     Request Body      Sent in the body of POST, PUT, or PATCH requests. Used to create or update resources. 	            { "name": "New Product", "price": 99.99 }
+       Parameters 	
+
 
 
 
