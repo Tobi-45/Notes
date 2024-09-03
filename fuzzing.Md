@@ -180,6 +180,7 @@ Gobuster's flexibility extends to fuzzing for various types of content:
 
 3. `-w /usr/share/SecLists/dDiscovery/DNS/subdomains-top1million-5000.txt`: This points to the wordlist file that Gobuster will use to generate potential subdomain names. In this example, we're using a wordlist containing the top 5000 most common subdomains.
 
+# Identifying Endpoints (API's)
 
 
 
