@@ -194,6 +194,43 @@ Parameters are used to modify the behavior of API requests or provide additional
      Request Body      Sent in the body of POST, PUT, or PATCH requests. Used to create or update resources. 	            { "name": "New Product", "price": 99.99 }
        Parameters 	
 
+### Discovering REST Endpoints and Parameters
+
+
+**API Documentation**: The most reliable way to understand an API is to refer to its official documentation. This documentation often includes a list of available endpoints, their parameters, expected request/response formats, and example usage. Look for specifications like Swagger (OpenAPI) or RAML, which provide machine-readable API descriptions.
+
+**Network Traffic Analysis**: If documentation is not available or incomplete, you can analyze network traffic to observe how the API is used. Tools like Burp Suite or your browser's developer tools allow you to intercept and inspect API requests and responses, revealing endpoints, parameters, and data formats.
+
+**Parameter Name Fuzzing**: Similar to fuzzing for directories and files, you can use the same tools and techniques to fuzz for parameter names within API requests. Tools like ffuf and wfuzz, combined with appropriate wordlists, can be used to discover hidden or undocumented parameters. This can be particularly useful when dealing with APIs that lack comprehensive documentation.
+
+## SOAP API
+
+SOAP (Simple Object Access Protocol) APIs are structured differently from REST APIs. They rely on XML-based messages and Web Services Description Language (WSDL) files to define their interfaces and operations.
+
+Unlike REST APIs, which use distinct URLs for each resource, SOAP APIs typically expose a single endpoint. This endpoint is a URL where the SOAP server listens for incoming requests. The content of the SOAP message itself determines the specific operation you want to perform.
+
+SOAP parameters are defined within the body of the SOAP message, an XML document. These parameters are organized into elements and attributes, forming a hierarchical structure. The specific structure of the parameters depends on the operation being invoked. The parameters are defined in the Web Services Description Language (WSDL) file, an XML-based document that describes the web service's interface, operations, and message formats.
+
+Imagine a SOAP API for a library that offers a book search service. The WSDL file might define an operation called SearchBooks with the following input parameters:
+
+**keywords (string)**: The search terms to use.
+**author (string)**: The name of the author (optional).
+**genre (string)**: The genre of the book (optional).
+
+     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:lib="http://example.com/library">
+      <soapenv:Header/>
+        <soapenv:Body>
+      <lib:SearchBooks>
+         <lib:keywords>cybersecurity</lib:keywords>
+         <lib:author>Dan Kaminsky</lib:author>
+      </lib:SearchBooks>
+     </soapenv:Body>
+   </soapenv:Envelope>
+
+
+
+
+
 
 
 
