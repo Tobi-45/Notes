@@ -265,6 +265,9 @@ Queries are designed to fetch data from the GraphQL server. They pinpoint the ex
      Nested Object 	|   A field that returns another object, allowing you to traverse deeper into the data graph. | 	  posts { title, body }
        Argument 	|      Modifies the behavior of a query or field (e.g., filtering, sorting, pagination). 	    |posts(limit: 5) (retrieves the first 5 posts of a user)
 
+
+The Query example:
+
         query {
      user(id: 123) {
        name
