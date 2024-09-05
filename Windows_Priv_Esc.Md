@@ -32,6 +32,59 @@ As part of these files, you might encounter credentials:
          <Password>MyPassword123</Password>
     </Credentials>
 
+## Powershell History
+
+`type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt`
+
+**Note**: The command above will only work from `cmd.exe`, as Powershell won't recognize `%userprofile%` as an environment variable. To read the file from Powershell, you'd have to replace `%userprofile%` with `$Env:userprofile`
+
+## Saved Windows Credentials
+
+`cmdkey /list`
+
+While you can't see the actual passwords, if you notice any credentials worth trying, you can use them with the `runas` command and the `/savecred` option, as seen below.
+
+`runas /savecred /user:admin cmd.exe`
+
+## IIS Configuration
+
+Internet Information Services (IIS) is the default web server on Windows installations. The configuration of websites on IIS is stored in a file called web.config and can store passwords for databases or configured authentication mechanisms. Depending on the installed version of IIS, we can find web.config in one of the following locations:
+
+    C:\inetpub\wwwroot\web.config
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config
+
+Here is a quick way to find database connection strings on the file:
+
+`type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString`
+
+## Retrieve Credentials from Software: PuTTY
+
+PuTTY is an SSH client commonly found on Windows systems. While PuTTY won't allow users to store their SSH password, it will store proxy configurations that include cleartext authentication credentials.
+
+To retrieve the stored proxy credentials, you can search under the following registry key for ProxyPassword with the following command:
+
+`reg query HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\ /f "Proxy" /s`
+
+**Note**: Simon Tatham is the creator of PuTTY (and his name is part of the path), not the username for which we are retrieving the password. The stored proxy username should also be visible after running the command above.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
