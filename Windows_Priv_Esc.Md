@@ -87,6 +87,17 @@ Make a malicious .msi file using msfvenom, and send it over and run the installe
 
 **Need to do more research on This**
 
+# Abusing Service Misconfigurations
+
+## Windows Services
+
+Windows services are managed by the Service Control Manager (SCM). The SCM is a process in charge of managing the state of services as needed, checking the current status of any given service and generally providing a way to configure services.
+
+Each service on a Windows machine will have an associated executable which will be run by the SCM whenever a service is started. It is important to note that service executables implement special functions to be able to communicate with the SCM, and therefore not any executable can be started as a service successfully. Each service also specifies the user account under which the service will run.
+
+**Command to check for service configuration `nc qc SERVICE_CONFIG_NAME`**
+
+
 
 
 
