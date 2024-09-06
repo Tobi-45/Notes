@@ -97,7 +97,19 @@ Each service on a Windows machine will have an associated executable which will 
 
 **Command to check for service configuration `nc qc SERVICE_CONFIG_NAME`**
 
+**Steps to enumerate this**
 
+If the executable associated with a service has weak permissions that allow an attacker to modify or replace it, the attacker can gain the privileges of the service's account trivially.
+
+1.  Check where the executable is created for the service with the command `sc qc SERVICE_NAME` also, Check `BINARY_PATH_NAME` & `SERVICE_START_NAME` to know the location of executable & to know who the service run's as
+
+2. Check the permissions for the `.exe` with the command `icacls EXE_PATH`
+
+3. Create the payload using `msfvenom` share it over to the victime, replace it with the real exe
+
+4.  Grant the permission to all group using `icacls .exe /grant Everyone:F`
+
+5. wait for the service to restart & rtart the lister
 
 
 
