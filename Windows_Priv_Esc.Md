@@ -67,6 +67,27 @@ To retrieve the stored proxy credentials, you can search under the following reg
 
 **Note**: Simon Tatham is the creator of PuTTY (and his name is part of the path), not the username for which we are retrieving the password. The stored proxy username should also be visible after running the command above.
 
+# Easy tricks for Priv Esc
+
+## Scheduled Tasks
+
+Command to check scheduled tasks `schtasks`
+
+To get detailed info `schtasks /query /tn vulntask /fo list /v`
+
+You will get lots of information about the task, but what matters for us is the "Task to Run" parameter which indicates what gets executed by the scheduled task, and the "Run As User" parameter, which shows the user that will be used to execute the task.
+
+To check the file permissions on the executable, we use `icacls`
+
+## AlwaysInstallElevated
+
+Windows installer files (also known as .msi files) are used to install applications on the system. They usually run with the privilege level of the user that starts it. However, these can be configured to run with higher privileges from any user account (even unprivileged ones). This could potentially allow us to generate a malicious MSI file that would run with admin privileges.
+
+Make a malicious .msi file using msfvenom, and send it over and run the installer.
+
+**Need to do more research on This**
+
+
 
 
 
