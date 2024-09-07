@@ -113,7 +113,7 @@ If the executable associated with a service has weak permissions that allow an a
 
 ## Unquoted Service Paths
 
-When working with Windows services, a very particular behaviour occurs when the service is configured to point to an "unquoted" executable. By unquoted, we mean that the path of the associated executable isn't properly quoted to account for spaces on the command.
+When working with Windows services, a very particular behaviour occurs when the service is configured to point to an "unquoted" executable. By unquoted, we mean that the path of the associated executable isn't properly quoted to account for spaces on the command. **Always look for services with space in their name, chances are that the executabole created also has space in the name so that we can exploit it**
 
 Example : C:\MyPrograms\Disk Sorter Enterprise\bin\disksrs.exe
 
