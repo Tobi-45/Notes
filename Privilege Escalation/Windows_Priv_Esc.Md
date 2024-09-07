@@ -135,6 +135,25 @@ Instead of failing as it probably should, SCM tries to help the user and starts 
 
 ## Insecure Service Permissions
 
+Should the service DACL (not the service's executable DACL) allow you to modify the configuration of a service, you will be able to reconfigure the service. This will allow you to point to any executable you need and run it with any account you prefer, including SYSTEM itself.
+
+Checking for a service DACL with `accesschk64.exe -qlc SERVICE_NAME` (Research about the accesschk command/ Installation)
+
+**Create a reverse/tcp payload using msfvenom & transfer it to the victime**
+
+**Grant permission to everyone**
+
+To change the service's associated executable and account, we can use the following command (mind the spaces after the equal signs when using sc.exe)
+
+`C:\> sc config SERVICE_NAME binPath= "OUR_PAYLOAD_PATH" obj= LocalSystem`
+
+Notice we can use any account to run the service. We chose LocalSystem as it is the highest privileged account available.
+
+        
+
+
+
+
 
 
 
