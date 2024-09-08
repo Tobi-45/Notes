@@ -149,8 +149,25 @@ To change the service's associated executable and account, we can use the follow
 
 Notice we can use any account to run the service. We chose LocalSystem as it is the highest privileged account available.
 
-        
+# Abusing most common privileges you can find.
 
+Privileges are rights that an account has to perform specific system-related tasks. These tasks can be as simple as the privilege to shut down the machine up to privileges to bypass some DACL-based access controls.
+
+To check privileges in WIN `whoami /priv`
+
+## SeBackup / SeRestore
+
+The SeBackup and SeRestore privileges allow users to read and write to any file in the system, ignoring any DACL in place. The idea behind this privilege is to allow certain users to perform backups from a system without requiring full administrative privileges.
+
+## SeTakeOwnership
+
+The SeTakeOwnership privilege allows a user to take ownership of any object on the system, including files and registry keys, opening up many possibilities for an attacker to elevate privileges, as we could, for example, search for a service running as SYSTEM and take ownership of the service's executable.
+
+## SeImpersonate / SeAssignPrimaryToken
+
+These privileges allow a process to impersonate other users and act on their behalf. Impersonation usually consists of being able to spawn a process or thread under the security context of another user.
+
+**This are just some examples, diffrent privileges have diffrent methods to enumerate, Do research**
 
 
 
