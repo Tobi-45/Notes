@@ -169,6 +169,12 @@ These privileges allow a process to impersonate other users and act on their beh
 
 **This are just some examples, diffrent privileges have diffrent methods to enumerate, Do research**
 
+# Abusing vulnerable/Unpatched software
+
+ You can use the `wmic` tool to list software installed on the target system and its versions.
+
+For detailed info `wmic product get name,version,vendor`
+
 
 
 
