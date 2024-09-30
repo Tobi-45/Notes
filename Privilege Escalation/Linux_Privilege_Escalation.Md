@@ -255,6 +255,10 @@ Soo what i understood by reading all of it is that, there are few folders that y
 
 6. Run it on the target machine
 
+------------------------------------------------------------------------------------------------------------------------------
+
+`echo $SHELL` to check who are we as shell
+
 
 
 
