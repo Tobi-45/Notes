@@ -107,7 +107,7 @@ Folders and files that can be written to or executed from
 
     `find / -perm -o x -type d 2>/dev/null` : Find world-executable folders
 
-    `find / -type f -group "user's name" 2>/dev/null` : Find user-writeable files
+    `find / -type f -group "user's_name" -ls 2>/dev/null` : Find user-writeable files
 
     Find development tools and supported languages:
 
